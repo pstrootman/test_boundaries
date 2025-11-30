@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Administrative Boundaries</title>
-    <script src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/dist/duckdb-browser-mvp.js"></script>
     <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
     <style>
@@ -148,7 +147,9 @@
         <table id="info-table"></table>
     </div>
 
-    <script>
+    <script type="module">
+        import * as duckdb from 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm';
+
         let db = null;
         let conn = null;
         let map = null;
@@ -192,15 +193,13 @@
             try {
                 updateStatus('Loading DuckDB...', 'loading');
 
-                const JSDELIVR_BUNDLES = {
-                    mvp: {
-                        mainModule: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/dist/duckdb-mvp.wasm',
-                        mainWorker: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/dist/duckdb-browser-mvp.worker.js'
-                    }
-                };
+                const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+                const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
 
-                const bundle = JSDELIVR_BUNDLES.mvp;
-                const worker = new Worker(bundle.mainWorker);
+                const worker_url = URL.createObjectURL(
+                    new Blob([`importScripts("${bundle.mainWorker}");`], { type: 'text/javascript' })
+                );
+                const worker = new Worker(worker_url);
                 const logger = new duckdb.ConsoleLogger();
                 db = new duckdb.AsyncDuckDB(logger, worker);
                 await db.instantiate(bundle.mainModule);
@@ -396,6 +395,8 @@
         function closeInfoPanel() {
             document.getElementById('info-panel').style.display = 'none';
         }
+        // Expose to global scope for onclick handler
+        window.closeInfoPanel = closeInfoPanel;
 
         // Set up button handlers
         document.querySelectorAll('.level-btn').forEach(btn => {
