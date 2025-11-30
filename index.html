@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Administrative Boundaries</title>
+    <script src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/dist/duckdb-browser-mvp.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 300px;
+        }
+        .controls h3 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .level-btn {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 4px;
+            border: 2px solid #3b82f6;
+            background: white;
+            color: #3b82f6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .level-btn:hover {
+            background: #eff6ff;
+        }
+        .level-btn.active {
+            background: #3b82f6;
+            color: white;
+        }
+        .level-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .status {
+            margin-top: 12px;
+            padding: 10px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #666;
+        }
+        .status.loading {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        .feature-count {
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        .info-panel {
+            position: absolute;
+            bottom: 30px;
+            left: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 350px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        .info-panel h4 {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .info-panel table {
+            width: 100%;
+            font-size: 12px;
+            border-collapse: collapse;
+        }
+        .info-panel td {
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .info-panel td:first-child {
+            font-weight: 500;
+            color: #666;
+            width: 40%;
+        }
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #999;
+        }
+        .close-btn:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <div class="controls">
+        <h3>Administrative Level</h3>
+        <div id="level-buttons">
+            <button class="level-btn" data-level="0">Level 0 (Countries)</button>
+            <button class="level-btn" data-level="1">Level 1 (States/Provinces)</button>
+            <button class="level-btn" data-level="2">Level 2 (Districts)</button>
+            <button class="level-btn" data-level="3">Level 3 (Sub-districts)</button>
+        </div>
+        <div id="status" class="status loading">Initializing DuckDB...</div>
+    </div>
+
+    <div id="info-panel" class="info-panel">
+        <button class="close-btn" onclick="closeInfoPanel()">&times;</button>
+        <h4 id="info-title">Feature Info</h4>
+        <table id="info-table"></table>
+    </div>
+
+    <script>
+        let db = null;
+        let conn = null;
+        let map = null;
+        let currentLevel = null;
+
+        // Admin level colors
+        const levelColors = {
+            0: '#ef4444',  // Red - Countries
+            1: '#f97316',  // Orange - States
+            2: '#eab308',  // Yellow - Districts
+            3: '#22c55e'   // Green - Sub-districts
+        };
+
+        // Initialize the map
+        map = new maplibregl.Map({
+            container: 'map',
+            style: {
+                version: 8,
+                sources: {
+                    'osm': {
+                        type: 'raster',
+                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+                        tileSize: 256,
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }
+                },
+                layers: [{
+                    id: 'osm',
+                    type: 'raster',
+                    source: 'osm'
+                }]
+            },
+            center: [0, 20],
+            zoom: 2
+        });
+
+        map.addControl(new maplibregl.NavigationControl());
+
+        // Initialize DuckDB
+        async function initDuckDB() {
+            try {
+                updateStatus('Loading DuckDB...', 'loading');
+
+                const JSDELIVR_BUNDLES = {
+                    mvp: {
+                        mainModule: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/dist/duckdb-mvp.wasm',
+                        mainWorker: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/dist/duckdb-browser-mvp.worker.js'
+                    }
+                };
+
+                const bundle = JSDELIVR_BUNDLES.mvp;
+                const worker = new Worker(bundle.mainWorker);
+                const logger = new duckdb.ConsoleLogger();
+                db = new duckdb.AsyncDuckDB(logger, worker);
+                await db.instantiate(bundle.mainModule);
+
+                conn = await db.connect();
+
+                // Install and load spatial extension
+                updateStatus('Loading spatial extension...', 'loading');
+                await conn.query(`INSTALL spatial; LOAD spatial;`);
+
+                // Register the parquet file
+                updateStatus('Loading boundary data...', 'loading');
+
+                // Fetch the parquet file
+                const response = await fetch('boundaries.parquet');
+                const arrayBuffer = await response.arrayBuffer();
+                await db.registerFileBuffer('boundaries.parquet', new Uint8Array(arrayBuffer));
+
+                updateStatus('Ready! Select an admin level to view.', '');
+                enableButtons();
+
+            } catch (error) {
+                console.error('Error initializing DuckDB:', error);
+                updateStatus('Error: ' + error.message, 'error');
+            }
+        }
+
+        function updateStatus(message, className) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = 'status ' + className;
+        }
+
+        function enableButtons() {
+            document.querySelectorAll('.level-btn').forEach(btn => {
+                btn.disabled = false;
+            });
+        }
+
+        // Query and display boundaries for a given level
+        async function loadLevel(level) {
+            if (!conn) return;
+
+            try {
+                // Update UI
+                document.querySelectorAll('.level-btn').forEach(btn => {
+                    btn.classList.toggle('active', parseInt(btn.dataset.level) === level);
+                });
+
+                currentLevel = level;
+                updateStatus(`Loading level ${level} boundaries...`, 'loading');
+
+                // Query DuckDB for the selected level
+                const result = await conn.query(`
+                    SELECT
+                        ST_AsGeoJSON(ST_GeomFromWKB(geometry)) as geojson,
+                        NAME_0,
+                        NAME_1,
+                        NAME_2,
+                        NAME_3,
+                        TYPE_1,
+                        TYPE_2,
+                        TYPE_3,
+                        ADMIN_LEVE,
+                        Shape_Area
+                    FROM read_parquet('boundaries.parquet')
+                    WHERE ADMIN_LEVE = ${level}
+                `);
+
+                // Convert to GeoJSON
+                const features = [];
+                for (let i = 0; i < result.numRows; i++) {
+                    const row = result.get(i);
+                    try {
+                        const geometry = JSON.parse(row.geojson);
+                        features.push({
+                            type: 'Feature',
+                            geometry: geometry,
+                            properties: {
+                                name_0: row.NAME_0,
+                                name_1: row.NAME_1,
+                                name_2: row.NAME_2,
+                                name_3: row.NAME_3,
+                                type_1: row.TYPE_1,
+                                type_2: row.TYPE_2,
+                                type_3: row.TYPE_3,
+                                admin_level: row.ADMIN_LEVE,
+                                area: row.Shape_Area
+                            }
+                        });
+                    } catch (e) {
+                        // Skip invalid geometries
+                    }
+                }
+
+                const geojson = {
+                    type: 'FeatureCollection',
+                    features: features
+                };
+
+                // Update map
+                if (map.getSource('boundaries')) {
+                    map.getSource('boundaries').setData(geojson);
+                } else {
+                    map.addSource('boundaries', {
+                        type: 'geojson',
+                        data: geojson
+                    });
+
+                    map.addLayer({
+                        id: 'boundaries-fill',
+                        type: 'fill',
+                        source: 'boundaries',
+                        paint: {
+                            'fill-color': levelColors[level],
+                            'fill-opacity': 0.3
+                        }
+                    });
+
+                    map.addLayer({
+                        id: 'boundaries-line',
+                        type: 'line',
+                        source: 'boundaries',
+                        paint: {
+                            'line-color': levelColors[level],
+                            'line-width': 1
+                        }
+                    });
+
+                    // Add click handler
+                    map.on('click', 'boundaries-fill', (e) => {
+                        if (e.features.length > 0) {
+                            showFeatureInfo(e.features[0].properties);
+                        }
+                    });
+
+                    map.on('mouseenter', 'boundaries-fill', () => {
+                        map.getCanvas().style.cursor = 'pointer';
+                    });
+
+                    map.on('mouseleave', 'boundaries-fill', () => {
+                        map.getCanvas().style.cursor = '';
+                    });
+                }
+
+                // Update layer colors for new level
+                map.setPaintProperty('boundaries-fill', 'fill-color', levelColors[level]);
+                map.setPaintProperty('boundaries-line', 'line-color', levelColors[level]);
+
+                updateStatus(`Showing <span class="feature-count">${features.length.toLocaleString()}</span> level ${level} boundaries. Click a boundary for details.`, '');
+                document.getElementById('status').innerHTML = document.getElementById('status').textContent.replace(
+                    features.length.toLocaleString(),
+                    `<span class="feature-count">${features.length.toLocaleString()}</span>`
+                );
+
+            } catch (error) {
+                console.error('Error loading level:', error);
+                updateStatus('Error loading boundaries: ' + error.message, 'error');
+            }
+        }
+
+        function showFeatureInfo(properties) {
+            const panel = document.getElementById('info-panel');
+            const title = document.getElementById('info-title');
+            const table = document.getElementById('info-table');
+
+            // Determine the name based on admin level
+            let name = properties.name_0;
+            if (properties.admin_level >= 1 && properties.name_1) name = properties.name_1;
+            if (properties.admin_level >= 2 && properties.name_2) name = properties.name_2;
+            if (properties.admin_level >= 3 && properties.name_3) name = properties.name_3;
+
+            title.textContent = name || 'Unknown';
+
+            // Build info table
+            const rows = [
+                ['Country', properties.name_0],
+                ['Admin Level', properties.admin_level]
+            ];
+
+            if (properties.name_1) rows.push(['Level 1', properties.name_1 + (properties.type_1 ? ` (${properties.type_1})` : '')]);
+            if (properties.name_2) rows.push(['Level 2', properties.name_2 + (properties.type_2 ? ` (${properties.type_2})` : '')]);
+            if (properties.name_3) rows.push(['Level 3', properties.name_3 + (properties.type_3 ? ` (${properties.type_3})` : '')]);
+            if (properties.area) rows.push(['Area', properties.area.toFixed(4) + ' sq deg']);
+
+            table.innerHTML = rows.map(([key, val]) =>
+                `<tr><td>${key}</td><td>${val || '-'}</td></tr>`
+            ).join('');
+
+            panel.style.display = 'block';
+        }
+
+        function closeInfoPanel() {
+            document.getElementById('info-panel').style.display = 'none';
+        }
+
+        // Set up button handlers
+        document.querySelectorAll('.level-btn').forEach(btn => {
+            btn.disabled = true;
+            btn.addEventListener('click', () => {
+                loadLevel(parseInt(btn.dataset.level));
+            });
+        });
+
+        // Start initialization
+        map.on('load', initDuckDB);
+    </script>
+</body>
+</html>

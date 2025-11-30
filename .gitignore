@@ -1,0 +1,13 @@
+# Shapefile components (keeping parquet only)
+*.shp
+*.shx
+*.dbf
+*.prj
+*.sbn
+*.sbx
+*.cpg
+*.xml
+*.lock
+
+# macOS
+.DS_Store
