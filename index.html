@@ -206,12 +206,8 @@
 
                 conn = await db.connect();
 
-                // Install and load spatial extension
-                updateStatus('Loading spatial extension...', 'loading');
-                await conn.query(`INSTALL spatial; LOAD spatial;`);
-
                 // Register the parquet file
-                updateStatus('Loading boundary data...', 'loading');
+                updateStatus('Loading boundary data (this may take a moment)...', 'loading');
 
                 // Fetch the parquet file
                 const response = await fetch('boundaries.parquet');
@@ -255,7 +251,7 @@
                 // Query DuckDB for the selected level
                 const result = await conn.query(`
                     SELECT
-                        ST_AsGeoJSON(ST_GeomFromWKB(geometry)) as geojson,
+                        geojson,
                         NAME_0,
                         NAME_1,
                         NAME_2,
