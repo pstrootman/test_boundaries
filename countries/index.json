@@ -1,0 +1,2896 @@
+[
+  {
+    "code": "AFG",
+    "name": "Afghanistan",
+    "features": 691,
+    "levels": {
+      "2": 328,
+      "3": 328,
+      "1": 34,
+      "0": 1
+    },
+    "size_kb": 768.0
+  },
+  {
+    "code": "ALB",
+    "name": "Albania",
+    "features": 428,
+    "levels": {
+      "3": 378,
+      "2": 37,
+      "1": 12,
+      "0": 1
+    },
+    "size_kb": 402.1
+  },
+  {
+    "code": "DZA",
+    "name": "Algeria",
+    "features": 3057,
+    "levels": {
+      "2": 1504,
+      "3": 1504,
+      "1": 48,
+      "0": 1
+    },
+    "size_kb": 3386.8
+  },
+  {
+    "code": "ASM",
+    "name": "American Samoa",
+    "features": 95,
+    "levels": {
+      "3": 74,
+      "2": 16,
+      "1": 4,
+      "0": 1
+    },
+    "size_kb": 40.9
+  },
+  {
+    "code": "AND",
+    "name": "Andorra",
+    "features": 22,
+    "levels": {
+      "1": 7,
+      "2": 7,
+      "3": 7,
+      "0": 1
+    },
+    "size_kb": 32.9
+  },
+  {
+    "code": "AGO",
+    "name": "Angola",
+    "features": 708,
+    "levels": {
+      "3": 527,
+      "2": 163,
+      "1": 18
+    },
+    "size_kb": 1364.0
+  },
+  {
+    "code": "AIA",
+    "name": "Anguilla",
+    "features": 54,
+    "levels": {
+      "1": 18,
+      "2": 18,
+      "3": 18
+    },
+    "size_kb": 27.4
+  },
+  {
+    "code": "ATA",
+    "name": "Antarctica",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 2545.9
+  },
+  {
+    "code": "ATG",
+    "name": "Antigua and Barbuda",
+    "features": 25,
+    "levels": {
+      "1": 8,
+      "2": 8,
+      "3": 8,
+      "0": 1
+    },
+    "size_kb": 38.4
+  },
+  {
+    "code": "ARG",
+    "name": "Argentina",
+    "features": 1029,
+    "levels": {
+      "2": 502,
+      "3": 502,
+      "1": 24,
+      "0": 1
+    },
+    "size_kb": 2354.1
+  },
+  {
+    "code": "ARM",
+    "name": "Armenia",
+    "features": 34,
+    "levels": {
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "0": 1
+    },
+    "size_kb": 63.6
+  },
+  {
+    "code": "ABW",
+    "name": "Aruba",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 23.3
+  },
+  {
+    "code": "AUS",
+    "name": "Australia",
+    "features": 1148,
+    "levels": {
+      "2": 568,
+      "3": 568,
+      "1": 11,
+      "0": 1
+    },
+    "size_kb": 9469.8
+  },
+  {
+    "code": "AUT",
+    "name": "Austria",
+    "features": 2204,
+    "levels": {
+      "3": 2100,
+      "2": 94,
+      "1": 9,
+      "0": 1
+    },
+    "size_kb": 2869.5
+  },
+  {
+    "code": "AZE",
+    "name": "Azerbaijan",
+    "features": 169,
+    "levels": {
+      "2": 79,
+      "3": 79,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 256.4
+  },
+  {
+    "code": "BHS",
+    "name": "Bahamas",
+    "features": 97,
+    "levels": {
+      "1": 32,
+      "2": 32,
+      "3": 32,
+      "0": 1
+    },
+    "size_kb": 652.6
+  },
+  {
+    "code": "BHR",
+    "name": "Bahrain",
+    "features": 13,
+    "levels": {
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "0": 1
+    },
+    "size_kb": 46.7
+  },
+  {
+    "code": "BGD",
+    "name": "Bangladesh",
+    "features": 618,
+    "levels": {
+      "3": 545,
+      "2": 64,
+      "1": 8,
+      "0": 1
+    },
+    "size_kb": 2570.2
+  },
+  {
+    "code": "BRB",
+    "name": "Barbados",
+    "features": 34,
+    "levels": {
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "0": 1
+    },
+    "size_kb": 30.5
+  },
+  {
+    "code": "BLR",
+    "name": "Belarus",
+    "features": 244,
+    "levels": {
+      "2": 118,
+      "3": 118,
+      "1": 7,
+      "0": 1
+    },
+    "size_kb": 816.3
+  },
+  {
+    "code": "BEL",
+    "name": "Belgium",
+    "features": 58,
+    "levels": {
+      "3": 43,
+      "2": 11,
+      "1": 3,
+      "0": 1
+    },
+    "size_kb": 215.2
+  },
+  {
+    "code": "BLZ",
+    "name": "Belize",
+    "features": 19,
+    "levels": {
+      "1": 6,
+      "2": 6,
+      "3": 6,
+      "0": 1
+    },
+    "size_kb": 150.8
+  },
+  {
+    "code": "BEN",
+    "name": "Benin",
+    "features": 637,
+    "levels": {
+      "3": 546,
+      "2": 78,
+      "1": 12,
+      "0": 1
+    },
+    "size_kb": 554.0
+  },
+  {
+    "code": "BMU",
+    "name": "Bermuda",
+    "features": 34,
+    "levels": {
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "0": 1
+    },
+    "size_kb": 38.6
+  },
+  {
+    "code": "BTN",
+    "name": "Bhutan",
+    "features": 431,
+    "levels": {
+      "2": 205,
+      "3": 205,
+      "1": 20,
+      "0": 1
+    },
+    "size_kb": 379.8
+  },
+  {
+    "code": "BOL",
+    "name": "Bolivia",
+    "features": 466,
+    "levels": {
+      "3": 344,
+      "2": 112,
+      "1": 9,
+      "0": 1
+    },
+    "size_kb": 2917.1
+  },
+  {
+    "code": "BES",
+    "name": "Bonaire, Sint Eustatius and Saba",
+    "features": 10,
+    "levels": {
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "0": 1
+    },
+    "size_kb": 28.2
+  },
+  {
+    "code": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "features": 163,
+    "levels": {
+      "3": 141,
+      "2": 18,
+      "1": 3,
+      "0": 1
+    },
+    "size_kb": 332.9
+  },
+  {
+    "code": "BWA",
+    "name": "Botswana",
+    "features": 77,
+    "levels": {
+      "2": 30,
+      "3": 30,
+      "1": 16,
+      "0": 1
+    },
+    "size_kb": 211.8
+  },
+  {
+    "code": "BVT",
+    "name": "Bouvet Island",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 32.3
+  },
+  {
+    "code": "BRA",
+    "name": "Brazil",
+    "features": 11172,
+    "levels": {
+      "2": 5572,
+      "3": 5572,
+      "1": 27,
+      "0": 1
+    },
+    "size_kb": 45826.6
+  },
+  {
+    "code": "IOT",
+    "name": "British Indian Ocean Territory",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 29.0
+  },
+  {
+    "code": "VGB",
+    "name": "British Virgin Islands",
+    "features": 11,
+    "levels": {
+      "1": 5,
+      "2": 5,
+      "0": 1
+    },
+    "size_kb": 40.1
+  },
+  {
+    "code": "BRN",
+    "name": "Brunei",
+    "features": 83,
+    "levels": {
+      "2": 39,
+      "3": 39,
+      "1": 4,
+      "0": 1
+    },
+    "size_kb": 64.0
+  },
+  {
+    "code": "BGR",
+    "name": "Bulgaria",
+    "features": 555,
+    "levels": {
+      "2": 263,
+      "3": 263,
+      "1": 28,
+      "0": 1
+    },
+    "size_kb": 615.8
+  },
+  {
+    "code": "BFA",
+    "name": "Burkina Faso",
+    "features": 410,
+    "levels": {
+      "3": 351,
+      "2": 45,
+      "1": 13,
+      "0": 1
+    },
+    "size_kb": 1157.1
+  },
+  {
+    "code": "BDI",
+    "name": "Burundi",
+    "features": 2795,
+    "levels": {
+      "3": 2644,
+      "2": 133,
+      "1": 17,
+      "0": 1
+    },
+    "size_kb": 1196.7
+  },
+  {
+    "code": "CPV",
+    "name": "Cabo Verde",
+    "features": 67,
+    "levels": {
+      "1": 22,
+      "2": 22,
+      "3": 22,
+      "0": 1
+    },
+    "size_kb": 94.5
+  },
+  {
+    "code": "KHM",
+    "name": "Cambodia",
+    "features": 1858,
+    "levels": {
+      "3": 1630,
+      "2": 202,
+      "1": 25,
+      "0": 1
+    },
+    "size_kb": 1945.1
+  },
+  {
+    "code": "CMR",
+    "name": "Cameroon",
+    "features": 429,
+    "levels": {
+      "3": 360,
+      "2": 58,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 1390.6
+  },
+  {
+    "code": "CAN",
+    "name": "Canada",
+    "features": 5888,
+    "levels": {
+      "3": 5581,
+      "2": 293,
+      "1": 13,
+      "0": 1
+    },
+    "size_kb": 45353.7
+  },
+  {
+    "code": "CYM",
+    "name": "Cayman Islands",
+    "features": 19,
+    "levels": {
+      "1": 6,
+      "2": 6,
+      "3": 6,
+      "0": 1
+    },
+    "size_kb": 36.2
+  },
+  {
+    "code": "CAF",
+    "name": "Central African Republic",
+    "features": 120,
+    "levels": {
+      "2": 51,
+      "3": 51,
+      "1": 17,
+      "0": 1
+    },
+    "size_kb": 511.9
+  },
+  {
+    "code": "TCD",
+    "name": "Chad",
+    "features": 427,
+    "levels": {
+      "3": 348,
+      "2": 55,
+      "1": 23,
+      "0": 1
+    },
+    "size_kb": 498.7
+  },
+  {
+    "code": "CHL",
+    "name": "Chile",
+    "features": 362,
+    "levels": {
+      "3": 345,
+      "1": 16,
+      "0": 1
+    },
+    "size_kb": 10945.4
+  },
+  {
+    "code": "CXR",
+    "name": "Christmas Island",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 36.1
+  },
+  {
+    "code": "CCK",
+    "name": "Cocos Islands",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 27.7
+  },
+  {
+    "code": "COL",
+    "name": "Colombia",
+    "features": 2272,
+    "levels": {
+      "2": 1119,
+      "3": 1119,
+      "1": 33,
+      "0": 1
+    },
+    "size_kb": 9290.8
+  },
+  {
+    "code": "COM",
+    "name": "Comoros",
+    "features": 10,
+    "levels": {
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "0": 1
+    },
+    "size_kb": 36.6
+  },
+  {
+    "code": "COK",
+    "name": "Cook Islands",
+    "features": 34,
+    "levels": {
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "0": 1
+    },
+    "size_kb": 44.3
+  },
+  {
+    "code": "CRI",
+    "name": "Costa Rica",
+    "features": 576,
+    "levels": {
+      "3": 486,
+      "2": 82,
+      "1": 7,
+      "0": 1
+    },
+    "size_kb": 1105.4
+  },
+  {
+    "code": "HRV",
+    "name": "Croatia",
+    "features": 1142,
+    "levels": {
+      "2": 560,
+      "3": 560,
+      "1": 21,
+      "0": 1
+    },
+    "size_kb": 1214.2
+  },
+  {
+    "code": "CUB",
+    "name": "Cuba",
+    "features": 353,
+    "levels": {
+      "2": 168,
+      "3": 168,
+      "1": 16,
+      "0": 1
+    },
+    "size_kb": 1469.9
+  },
+  {
+    "code": "CUW",
+    "name": "Cura\u00e7ao",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 26.6
+  },
+  {
+    "code": "CYP",
+    "name": "Cyprus",
+    "features": 16,
+    "levels": {
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "0": 1
+    },
+    "size_kb": 41.6
+  },
+  {
+    "code": "CZE",
+    "name": "Czechia",
+    "features": 211,
+    "levels": {
+      "2": 98,
+      "3": 98,
+      "1": 14,
+      "0": 1
+    },
+    "size_kb": 409.4
+  },
+  {
+    "code": "CIV",
+    "name": "C\u00f4te d'Ivoire",
+    "features": 161,
+    "levels": {
+      "3": 113,
+      "2": 33,
+      "1": 14,
+      "0": 1
+    },
+    "size_kb": 913.8
+  },
+  {
+    "code": "COD",
+    "name": "Democratic Republic of the Congo",
+    "features": 507,
+    "levels": {
+      "2": 240,
+      "3": 240,
+      "1": 26,
+      "0": 1
+    },
+    "size_kb": 2305.7
+  },
+  {
+    "code": "DNK",
+    "name": "Denmark",
+    "features": 204,
+    "levels": {
+      "2": 99,
+      "3": 99,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 695.8
+  },
+  {
+    "code": "DJI",
+    "name": "Djibouti",
+    "features": 49,
+    "levels": {
+      "2": 21,
+      "3": 21,
+      "1": 6,
+      "0": 1
+    },
+    "size_kb": 54.3
+  },
+  {
+    "code": "DMA",
+    "name": "Dominica",
+    "features": 31,
+    "levels": {
+      "1": 10,
+      "2": 10,
+      "3": 10,
+      "0": 1
+    },
+    "size_kb": 34.5
+  },
+  {
+    "code": "DOM",
+    "name": "Dominican Republic",
+    "features": 343,
+    "levels": {
+      "2": 155,
+      "3": 155,
+      "1": 32,
+      "0": 1
+    },
+    "size_kb": 444.3
+  },
+  {
+    "code": "ECU",
+    "name": "Ecuador",
+    "features": 1287,
+    "levels": {
+      "3": 1039,
+      "2": 223,
+      "1": 24,
+      "0": 1
+    },
+    "size_kb": 3943.1
+  },
+  {
+    "code": "EGY",
+    "name": "Egypt",
+    "features": 714,
+    "levels": {
+      "2": 343,
+      "3": 343,
+      "1": 27,
+      "0": 1
+    },
+    "size_kb": 470.8
+  },
+  {
+    "code": "SLV",
+    "name": "El Salvador",
+    "features": 547,
+    "levels": {
+      "2": 266,
+      "3": 266,
+      "1": 14,
+      "0": 1
+    },
+    "size_kb": 353.8
+  },
+  {
+    "code": "GNQ",
+    "name": "Equatorial Guinea",
+    "features": 72,
+    "levels": {
+      "2": 32,
+      "3": 32,
+      "1": 7,
+      "0": 1
+    },
+    "size_kb": 119.6
+  },
+  {
+    "code": "ERI",
+    "name": "Eritrea",
+    "features": 107,
+    "levels": {
+      "2": 50,
+      "3": 50,
+      "1": 6,
+      "0": 1
+    },
+    "size_kb": 428.0
+  },
+  {
+    "code": "EST",
+    "name": "Estonia",
+    "features": 4925,
+    "levels": {
+      "3": 4684,
+      "2": 223,
+      "1": 16,
+      "0": 2
+    },
+    "size_kb": 3595.6
+  },
+  {
+    "code": "ETH",
+    "name": "Ethiopia",
+    "features": 781,
+    "levels": {
+      "3": 690,
+      "2": 79,
+      "1": 11,
+      "0": 1
+    },
+    "size_kb": 1568.8
+  },
+  {
+    "code": "FLK",
+    "name": "Falkland Islands",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 245.9
+  },
+  {
+    "code": "FRO",
+    "name": "Faroe Islands",
+    "features": 67,
+    "levels": {
+      "2": 30,
+      "3": 30,
+      "1": 6,
+      "0": 1
+    },
+    "size_kb": 122.5
+  },
+  {
+    "code": "FJI",
+    "name": "Fiji",
+    "features": 36,
+    "levels": {
+      "2": 15,
+      "3": 15,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 486.6
+  },
+  {
+    "code": "FIN",
+    "name": "Finland",
+    "features": 107,
+    "levels": {
+      "3": 80,
+      "2": 21,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 3174.3
+  },
+  {
+    "code": "FRA",
+    "name": "France",
+    "features": 460,
+    "levels": {
+      "3": 350,
+      "2": 96,
+      "1": 13,
+      "0": 1
+    },
+    "size_kb": 2969.5
+  },
+  {
+    "code": "GUF",
+    "name": "French Guiana",
+    "features": 45,
+    "levels": {
+      "2": 21,
+      "3": 21,
+      "1": 2,
+      "0": 1
+    },
+    "size_kb": 182.5
+  },
+  {
+    "code": "PYF",
+    "name": "French Polynesia",
+    "features": 16,
+    "levels": {
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "0": 1
+    },
+    "size_kb": 403.4
+  },
+  {
+    "code": "ATF",
+    "name": "French Southern Territories",
+    "features": 13,
+    "levels": {
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "0": 1
+    },
+    "size_kb": 250.0
+  },
+  {
+    "code": "GAB",
+    "name": "Gabon",
+    "features": 84,
+    "levels": {
+      "2": 37,
+      "3": 37,
+      "1": 9,
+      "0": 1
+    },
+    "size_kb": 343.5
+  },
+  {
+    "code": "GMB",
+    "name": "Gambia",
+    "features": 81,
+    "levels": {
+      "2": 37,
+      "3": 37,
+      "1": 6,
+      "0": 1
+    },
+    "size_kb": 100.9
+  },
+  {
+    "code": "GEO",
+    "name": "Georgia",
+    "features": 151,
+    "levels": {
+      "2": 69,
+      "3": 69,
+      "1": 12,
+      "0": 1
+    },
+    "size_kb": 216.3
+  },
+  {
+    "code": "DEU",
+    "name": "Germany",
+    "features": 5100,
+    "levels": {
+      "3": 4680,
+      "2": 403,
+      "1": 16,
+      "0": 1
+    },
+    "size_kb": 11061.7
+  },
+  {
+    "code": "GHA",
+    "name": "Ghana",
+    "features": 537,
+    "levels": {
+      "2": 260,
+      "3": 260,
+      "1": 16,
+      "0": 1
+    },
+    "size_kb": 1400.3
+  },
+  {
+    "code": "GIB",
+    "name": "Gibraltar",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 27.8
+  },
+  {
+    "code": "GRC",
+    "name": "Greece",
+    "features": 349,
+    "levels": {
+      "3": 326,
+      "2": 14,
+      "1": 8,
+      "0": 1
+    },
+    "size_kb": 2540.8
+  },
+  {
+    "code": "GRL",
+    "name": "Greenland",
+    "features": 16,
+    "levels": {
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "0": 1
+    },
+    "size_kb": 6093.8
+  },
+  {
+    "code": "GRD",
+    "name": "Grenada",
+    "features": 22,
+    "levels": {
+      "1": 7,
+      "2": 7,
+      "3": 7,
+      "0": 1
+    },
+    "size_kb": 39.8
+  },
+  {
+    "code": "GLP",
+    "name": "Guadeloupe",
+    "features": 67,
+    "levels": {
+      "2": 32,
+      "3": 32,
+      "1": 2,
+      "0": 1
+    },
+    "size_kb": 74.2
+  },
+  {
+    "code": "GUM",
+    "name": "Guam",
+    "features": 58,
+    "levels": {
+      "1": 19,
+      "2": 19,
+      "3": 19,
+      "0": 1
+    },
+    "size_kb": 35.6
+  },
+  {
+    "code": "GTM",
+    "name": "Guatemala",
+    "features": 731,
+    "levels": {
+      "2": 354,
+      "3": 354,
+      "1": 22,
+      "0": 1
+    },
+    "size_kb": 503.0
+  },
+  {
+    "code": "GGY",
+    "name": "Guernsey",
+    "features": 37,
+    "levels": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "0": 1
+    },
+    "size_kb": 37.1
+  },
+  {
+    "code": "GIN",
+    "name": "Guinea",
+    "features": 379,
+    "levels": {
+      "3": 336,
+      "2": 34,
+      "1": 8,
+      "0": 1
+    },
+    "size_kb": 819.2
+  },
+  {
+    "code": "GNB",
+    "name": "Guinea-Bissau",
+    "features": 84,
+    "levels": {
+      "2": 37,
+      "3": 37,
+      "1": 9,
+      "0": 1
+    },
+    "size_kb": 392.9
+  },
+  {
+    "code": "GUY",
+    "name": "Guyana",
+    "features": 243,
+    "levels": {
+      "2": 116,
+      "3": 116,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 441.4
+  },
+  {
+    "code": "HTI",
+    "name": "Haiti",
+    "features": 186,
+    "levels": {
+      "3": 134,
+      "2": 41,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 569.5
+  },
+  {
+    "code": "HMD",
+    "name": "Heard Island and McDonald Island",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 25.7
+  },
+  {
+    "code": "HND",
+    "name": "Honduras",
+    "features": 615,
+    "levels": {
+      "2": 298,
+      "3": 298,
+      "1": 18,
+      "0": 1
+    },
+    "size_kb": 686.0
+  },
+  {
+    "code": "HUN",
+    "name": "Hungary",
+    "features": 357,
+    "levels": {
+      "2": 168,
+      "3": 168,
+      "1": 20,
+      "0": 1
+    },
+    "size_kb": 497.3
+  },
+  {
+    "code": "ISL",
+    "name": "Iceland",
+    "features": 247,
+    "levels": {
+      "2": 119,
+      "3": 119,
+      "1": 8,
+      "0": 1
+    },
+    "size_kb": 850.2
+  },
+  {
+    "code": "IDN",
+    "name": "Indonesia",
+    "features": 7232,
+    "levels": {
+      "3": 6695,
+      "2": 502,
+      "1": 34,
+      "0": 1
+    },
+    "size_kb": 20505.2
+  },
+  {
+    "code": "IRN",
+    "name": "Iran",
+    "features": 568,
+    "levels": {
+      "2": 268,
+      "3": 268,
+      "1": 31,
+      "0": 1
+    },
+    "size_kb": 1087.6
+  },
+  {
+    "code": "IRQ",
+    "name": "Iraq",
+    "features": 223,
+    "levels": {
+      "2": 102,
+      "3": 102,
+      "1": 18,
+      "0": 1
+    },
+    "size_kb": 310.7
+  },
+  {
+    "code": "IRL",
+    "name": "Ireland",
+    "features": 213,
+    "levels": {
+      "2": 106,
+      "3": 106,
+      "0": 1
+    },
+    "size_kb": 1150.3
+  },
+  {
+    "code": "IMN",
+    "name": "Isle of Man",
+    "features": 64,
+    "levels": {
+      "1": 21,
+      "2": 21,
+      "3": 21,
+      "0": 1
+    },
+    "size_kb": 45.1
+  },
+  {
+    "code": "ISR",
+    "name": "Israel",
+    "features": 22,
+    "levels": {
+      "1": 7,
+      "2": 7,
+      "3": 7,
+      "0": 1
+    },
+    "size_kb": 46.2
+  },
+  {
+    "code": "ITA",
+    "name": "Italy",
+    "features": 8231,
+    "levels": {
+      "3": 8100,
+      "2": 110,
+      "1": 20,
+      "0": 1
+    },
+    "size_kb": 5761.5
+  },
+  {
+    "code": "JAM",
+    "name": "Jamaica",
+    "features": 43,
+    "levels": {
+      "1": 14,
+      "2": 14,
+      "3": 14,
+      "0": 1
+    },
+    "size_kb": 76.4
+  },
+  {
+    "code": "JPN",
+    "name": "Japan",
+    "features": 3670,
+    "levels": {
+      "2": 1811,
+      "3": 1811,
+      "1": 47,
+      "0": 1
+    },
+    "size_kb": 6170.3
+  },
+  {
+    "code": "JEY",
+    "name": "Jersey",
+    "features": 37,
+    "levels": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "0": 1
+    },
+    "size_kb": 40.8
+  },
+  {
+    "code": "JOR",
+    "name": "Jordan",
+    "features": 117,
+    "levels": {
+      "2": 52,
+      "3": 52,
+      "1": 12,
+      "0": 1
+    },
+    "size_kb": 104.0
+  },
+  {
+    "code": "KAZ",
+    "name": "Kazakhstan",
+    "features": 363,
+    "levels": {
+      "2": 174,
+      "3": 174,
+      "1": 14,
+      "0": 1
+    },
+    "size_kb": 708.4
+  },
+  {
+    "code": "KEN",
+    "name": "Kenya",
+    "features": 1790,
+    "levels": {
+      "3": 1442,
+      "2": 300,
+      "1": 47,
+      "0": 1
+    },
+    "size_kb": 3193.7
+  },
+  {
+    "code": "KIR",
+    "name": "Kiribati",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 74.1
+  },
+  {
+    "code": "KWT",
+    "name": "Kuwait",
+    "features": 19,
+    "levels": {
+      "1": 6,
+      "2": 6,
+      "3": 6,
+      "0": 1
+    },
+    "size_kb": 56.5
+  },
+  {
+    "code": "KGZ",
+    "name": "Kyrgyzstan",
+    "features": 98,
+    "levels": {
+      "2": 44,
+      "3": 44,
+      "1": 9,
+      "0": 1
+    },
+    "size_kb": 357.6
+  },
+  {
+    "code": "LAO",
+    "name": "Laos",
+    "features": 303,
+    "levels": {
+      "2": 142,
+      "3": 142,
+      "1": 18,
+      "0": 1
+    },
+    "size_kb": 600.5
+  },
+  {
+    "code": "LVA",
+    "name": "Latvia",
+    "features": 58,
+    "levels": {
+      "2": 26,
+      "3": 26,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 392.4
+  },
+  {
+    "code": "LBN",
+    "name": "Lebanon",
+    "features": 1604,
+    "levels": {
+      "3": 1565,
+      "2": 30,
+      "1": 8,
+      "0": 1
+    },
+    "size_kb": 747.8
+  },
+  {
+    "code": "LSO",
+    "name": "Lesotho",
+    "features": 31,
+    "levels": {
+      "1": 10,
+      "2": 10,
+      "3": 10,
+      "0": 1
+    },
+    "size_kb": 158.0
+  },
+  {
+    "code": "LBR",
+    "name": "Liberia",
+    "features": 387,
+    "levels": {
+      "3": 305,
+      "2": 66,
+      "1": 15,
+      "0": 1
+    },
+    "size_kb": 394.9
+  },
+  {
+    "code": "LBY",
+    "name": "Libya",
+    "features": 67,
+    "levels": {
+      "1": 22,
+      "2": 22,
+      "3": 22,
+      "0": 1
+    },
+    "size_kb": 180.8
+  },
+  {
+    "code": "LIE",
+    "name": "Liechtenstein",
+    "features": 34,
+    "levels": {
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "0": 1
+    },
+    "size_kb": 42.3
+  },
+  {
+    "code": "LTU",
+    "name": "Lithuania",
+    "features": 107,
+    "levels": {
+      "2": 48,
+      "3": 48,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 457.8
+  },
+  {
+    "code": "LUX",
+    "name": "Luxembourg",
+    "features": 118,
+    "levels": {
+      "3": 102,
+      "2": 12,
+      "1": 3,
+      "0": 1
+    },
+    "size_kb": 97.4
+  },
+  {
+    "code": "MDG",
+    "name": "Madagascar",
+    "features": 139,
+    "levels": {
+      "3": 110,
+      "2": 22,
+      "1": 6,
+      "0": 1
+    },
+    "size_kb": 2542.3
+  },
+  {
+    "code": "MWI",
+    "name": "Malawi",
+    "features": 3411,
+    "levels": {
+      "3": 3126,
+      "2": 256,
+      "1": 28,
+      "0": 1
+    },
+    "size_kb": 2038.4
+  },
+  {
+    "code": "MYS",
+    "name": "Malaysia",
+    "features": 305,
+    "levels": {
+      "2": 144,
+      "3": 144,
+      "1": 16,
+      "0": 1
+    },
+    "size_kb": 1249.5
+  },
+  {
+    "code": "MDV",
+    "name": "Maldives",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 104.4
+  },
+  {
+    "code": "MLI",
+    "name": "Mali",
+    "features": 349,
+    "levels": {
+      "3": 289,
+      "2": 50,
+      "1": 9,
+      "0": 1
+    },
+    "size_kb": 1270.8
+  },
+  {
+    "code": "MLT",
+    "name": "Malta",
+    "features": 142,
+    "levels": {
+      "2": 68,
+      "3": 68,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 58.1
+  },
+  {
+    "code": "MHL",
+    "name": "Marshall Islands",
+    "features": 70,
+    "levels": {
+      "1": 23,
+      "2": 23,
+      "3": 23,
+      "0": 1
+    },
+    "size_kb": 187.2
+  },
+  {
+    "code": "MTQ",
+    "name": "Martinique",
+    "features": 69,
+    "levels": {
+      "2": 32,
+      "3": 32,
+      "1": 4,
+      "0": 1
+    },
+    "size_kb": 64.7
+  },
+  {
+    "code": "MRT",
+    "name": "Mauritania",
+    "features": 102,
+    "levels": {
+      "2": 44,
+      "3": 44,
+      "1": 13,
+      "0": 1
+    },
+    "size_kb": 243.3
+  },
+  {
+    "code": "MUS",
+    "name": "Mauritius",
+    "features": 37,
+    "levels": {
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "0": 1
+    },
+    "size_kb": 72.5
+  },
+  {
+    "code": "MYT",
+    "name": "Mayotte",
+    "features": 52,
+    "levels": {
+      "1": 17,
+      "2": 17,
+      "3": 17,
+      "0": 1
+    },
+    "size_kb": 41.8
+  },
+  {
+    "code": "FSM",
+    "name": "Micronesia",
+    "features": 153,
+    "levels": {
+      "2": 74,
+      "3": 74,
+      "1": 4,
+      "0": 1
+    },
+    "size_kb": 163.3
+  },
+  {
+    "code": "MDA",
+    "name": "Moldova",
+    "features": 112,
+    "levels": {
+      "1": 37,
+      "2": 37,
+      "3": 37,
+      "0": 1
+    },
+    "size_kb": 163.9
+  },
+  {
+    "code": "MCO",
+    "name": "Monaco",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 25.3
+  },
+  {
+    "code": "MNG",
+    "name": "Mongolia",
+    "features": 677,
+    "levels": {
+      "2": 327,
+      "3": 327,
+      "1": 22,
+      "0": 1
+    },
+    "size_kb": 761.3
+  },
+  {
+    "code": "MNE",
+    "name": "Montenegro",
+    "features": 64,
+    "levels": {
+      "1": 21,
+      "2": 21,
+      "3": 21,
+      "0": 1
+    },
+    "size_kb": 70.6
+  },
+  {
+    "code": "MSR",
+    "name": "Montserrat",
+    "features": 10,
+    "levels": {
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "0": 1
+    },
+    "size_kb": 32.3
+  },
+  {
+    "code": "MAR",
+    "name": "Morocco",
+    "features": 469,
+    "levels": {
+      "3": 399,
+      "2": 54,
+      "1": 15,
+      "0": 1
+    },
+    "size_kb": 911.4
+  },
+  {
+    "code": "MOZ",
+    "name": "Mozambique",
+    "features": 554,
+    "levels": {
+      "3": 413,
+      "2": 129,
+      "1": 11,
+      "0": 1
+    },
+    "size_kb": 1884.3
+  },
+  {
+    "code": "MMR",
+    "name": "Myanmar",
+    "features": 365,
+    "levels": {
+      "3": 286,
+      "2": 63,
+      "1": 15,
+      "0": 1
+    },
+    "size_kb": 2740.0
+  },
+  {
+    "code": "MEX",
+    "name": "M\u00e9xico",
+    "features": 4947,
+    "levels": {
+      "2": 2457,
+      "3": 2457,
+      "1": 32,
+      "0": 1
+    },
+    "size_kb": 15703.0
+  },
+  {
+    "code": "NAM",
+    "name": "Namibia",
+    "features": 228,
+    "levels": {
+      "2": 107,
+      "3": 107,
+      "1": 13,
+      "0": 1
+    },
+    "size_kb": 443.0
+  },
+  {
+    "code": "NRU",
+    "name": "Nauru",
+    "features": 43,
+    "levels": {
+      "1": 14,
+      "2": 14,
+      "3": 14,
+      "0": 1
+    },
+    "size_kb": 26.7
+  },
+  {
+    "code": "NPL",
+    "name": "Nepal",
+    "features": 95,
+    "levels": {
+      "3": 75,
+      "2": 14,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 818.2
+  },
+  {
+    "code": "NLD",
+    "name": "Netherlands",
+    "features": 711,
+    "levels": {
+      "2": 355,
+      "3": 355,
+      "0": 1
+    },
+    "size_kb": 399.3
+  },
+  {
+    "code": "NCL",
+    "name": "New Caledonia",
+    "features": 74,
+    "levels": {
+      "2": 35,
+      "3": 35,
+      "1": 3,
+      "0": 1
+    },
+    "size_kb": 326.4
+  },
+  {
+    "code": "NZL",
+    "name": "New Zealand",
+    "features": 170,
+    "levels": {
+      "2": 75,
+      "3": 75,
+      "1": 19,
+      "0": 1
+    },
+    "size_kb": 2405.4
+  },
+  {
+    "code": "NIC",
+    "name": "Nicaragua",
+    "features": 297,
+    "levels": {
+      "2": 139,
+      "3": 139,
+      "1": 18,
+      "0": 1
+    },
+    "size_kb": 430.6
+  },
+  {
+    "code": "NER",
+    "name": "Niger",
+    "features": 176,
+    "levels": {
+      "3": 131,
+      "2": 36,
+      "1": 8,
+      "0": 1
+    },
+    "size_kb": 394.4
+  },
+  {
+    "code": "NGA",
+    "name": "Nigeria",
+    "features": 1588,
+    "levels": {
+      "2": 775,
+      "3": 775,
+      "1": 37,
+      "0": 1
+    },
+    "size_kb": 2531.9
+  },
+  {
+    "code": "NIU",
+    "name": "Niue",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 29.9
+  },
+  {
+    "code": "NFK",
+    "name": "Norfolk Island",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 37.1
+  },
+  {
+    "code": "PRK",
+    "name": "North Korea",
+    "features": 387,
+    "levels": {
+      "2": 186,
+      "3": 186,
+      "1": 14,
+      "0": 1
+    },
+    "size_kb": 701.4
+  },
+  {
+    "code": "MKD",
+    "name": "North Macedonia",
+    "features": 244,
+    "levels": {
+      "1": 81,
+      "2": 81,
+      "3": 81,
+      "0": 1
+    },
+    "size_kb": 127.1
+  },
+  {
+    "code": "MNP",
+    "name": "Northern Mariana Islands",
+    "features": 13,
+    "levels": {
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "0": 1
+    },
+    "size_kb": 38.9
+  },
+  {
+    "code": "NOR",
+    "name": "Norway",
+    "features": 896,
+    "levels": {
+      "2": 438,
+      "3": 438,
+      "1": 19,
+      "0": 1
+    },
+    "size_kb": 5848.8
+  },
+  {
+    "code": "OMN",
+    "name": "Oman",
+    "features": 110,
+    "levels": {
+      "2": 49,
+      "3": 49,
+      "1": 11,
+      "0": 1
+    },
+    "size_kb": 243.1
+  },
+  {
+    "code": "PLW",
+    "name": "Palau",
+    "features": 49,
+    "levels": {
+      "1": 16,
+      "2": 16,
+      "3": 16,
+      "0": 1
+    },
+    "size_kb": 80.7
+  },
+  {
+    "code": "PSE",
+    "name": "Palestine",
+    "features": 35,
+    "levels": {
+      "2": 16,
+      "3": 16,
+      "1": 2,
+      "0": 1
+    },
+    "size_kb": 45.8
+  },
+  {
+    "code": "PAN",
+    "name": "Panama",
+    "features": 691,
+    "levels": {
+      "3": 598,
+      "2": 79,
+      "1": 13,
+      "0": 1
+    },
+    "size_kb": 1584.2
+  },
+  {
+    "code": "PNG",
+    "name": "Papua New Guinea",
+    "features": 197,
+    "levels": {
+      "2": 87,
+      "3": 87,
+      "1": 22,
+      "0": 1
+    },
+    "size_kb": 1650.1
+  },
+  {
+    "code": "PRY",
+    "name": "Paraguay",
+    "features": 455,
+    "levels": {
+      "2": 218,
+      "3": 218,
+      "1": 18,
+      "0": 1
+    },
+    "size_kb": 662.3
+  },
+  {
+    "code": "PER",
+    "name": "Peru",
+    "features": 2037,
+    "levels": {
+      "3": 1815,
+      "2": 195,
+      "1": 26,
+      "0": 1
+    },
+    "size_kb": 5808.2
+  },
+  {
+    "code": "PHL",
+    "name": "Philippines",
+    "features": 43678,
+    "levels": {
+      "3": 41948,
+      "2": 1647,
+      "1": 81,
+      "0": 2
+    },
+    "size_kb": 11357.1
+  },
+  {
+    "code": "PCN",
+    "name": "Pitcairn Islands",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 23.2
+  },
+  {
+    "code": "POL",
+    "name": "Poland",
+    "features": 2876,
+    "levels": {
+      "3": 2479,
+      "2": 380,
+      "1": 16,
+      "0": 1
+    },
+    "size_kb": 6871.4
+  },
+  {
+    "code": "PRT",
+    "name": "Portugal",
+    "features": 4588,
+    "levels": {
+      "3": 4259,
+      "2": 308,
+      "1": 20,
+      "0": 1
+    },
+    "size_kb": 3728.2
+  },
+  {
+    "code": "PRI",
+    "name": "Puerto Rico",
+    "features": 235,
+    "levels": {
+      "1": 78,
+      "2": 78,
+      "3": 78,
+      "0": 1
+    },
+    "size_kb": 144.4
+  },
+  {
+    "code": "QAT",
+    "name": "Qatar",
+    "features": 22,
+    "levels": {
+      "1": 7,
+      "2": 7,
+      "3": 7,
+      "0": 1
+    },
+    "size_kb": 76.0
+  },
+  {
+    "code": "COG",
+    "name": "Republic of the Congo",
+    "features": 109,
+    "levels": {
+      "2": 48,
+      "3": 48,
+      "1": 12,
+      "0": 1
+    },
+    "size_kb": 348.0
+  },
+  {
+    "code": "ROU",
+    "name": "Romania",
+    "features": 5921,
+    "levels": {
+      "2": 2939,
+      "3": 2939,
+      "1": 42,
+      "0": 1
+    },
+    "size_kb": 7413.4
+  },
+  {
+    "code": "RUS",
+    "name": "Russia",
+    "features": 5091,
+    "levels": {
+      "3": 2562,
+      "2": 2445,
+      "1": 83,
+      "0": 1
+    },
+    "size_kb": 23035.2
+  },
+  {
+    "code": "RWA",
+    "name": "Rwanda",
+    "features": 458,
+    "levels": {
+      "3": 422,
+      "2": 30,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 682.1
+  },
+  {
+    "code": "REU",
+    "name": "R\u00e9union",
+    "features": 53,
+    "levels": {
+      "2": 24,
+      "3": 24,
+      "1": 4,
+      "0": 1
+    },
+    "size_kb": 39.2
+  },
+  {
+    "code": "SHN",
+    "name": "Saint Helena, Ascension and Tris",
+    "features": 24,
+    "levels": {
+      "2": 10,
+      "3": 10,
+      "1": 3,
+      "0": 1
+    },
+    "size_kb": 45.7
+  },
+  {
+    "code": "KNA",
+    "name": "Saint Kitts and Nevis",
+    "features": 43,
+    "levels": {
+      "1": 14,
+      "2": 14,
+      "3": 14,
+      "0": 1
+    },
+    "size_kb": 31.3
+  },
+  {
+    "code": "LCA",
+    "name": "Saint Lucia",
+    "features": 31,
+    "levels": {
+      "1": 10,
+      "2": 10,
+      "3": 10,
+      "0": 1
+    },
+    "size_kb": 36.6
+  },
+  {
+    "code": "SPM",
+    "name": "Saint Pierre and Miquelon",
+    "features": 7,
+    "levels": {
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "0": 1
+    },
+    "size_kb": 27.7
+  },
+  {
+    "code": "VCT",
+    "name": "Saint Vincent and the Grenadines",
+    "features": 13,
+    "levels": {
+      "1": 6,
+      "2": 6,
+      "0": 1
+    },
+    "size_kb": 50.0
+  },
+  {
+    "code": "BLM",
+    "name": "Saint-Barth\u00e9lemy",
+    "features": 87,
+    "levels": {
+      "2": 42,
+      "3": 42,
+      "1": 2,
+      "0": 1
+    },
+    "size_kb": 37.1
+  },
+  {
+    "code": "MAF",
+    "name": "Saint-Martin",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 23.4
+  },
+  {
+    "code": "WSM",
+    "name": "Samoa",
+    "features": 55,
+    "levels": {
+      "2": 43,
+      "1": 11,
+      "0": 1
+    },
+    "size_kb": 67.3
+  },
+  {
+    "code": "SMR",
+    "name": "San Marino",
+    "features": 28,
+    "levels": {
+      "1": 9,
+      "2": 9,
+      "3": 9,
+      "0": 1
+    },
+    "size_kb": 29.3
+  },
+  {
+    "code": "SAU",
+    "name": "Saudi Arabia",
+    "features": 308,
+    "levels": {
+      "2": 147,
+      "3": 147,
+      "1": 13,
+      "0": 1
+    },
+    "size_kb": 1697.0
+  },
+  {
+    "code": "SEN",
+    "name": "Senegal",
+    "features": 183,
+    "levels": {
+      "3": 123,
+      "2": 45,
+      "1": 14,
+      "0": 1
+    },
+    "size_kb": 652.8
+  },
+  {
+    "code": "SRB",
+    "name": "Serbia",
+    "features": 348,
+    "levels": {
+      "2": 161,
+      "3": 161,
+      "1": 25,
+      "0": 1
+    },
+    "size_kb": 423.9
+  },
+  {
+    "code": "SYC",
+    "name": "Seychelles",
+    "features": 79,
+    "levels": {
+      "1": 26,
+      "2": 26,
+      "3": 26,
+      "0": 1
+    },
+    "size_kb": 77.7
+  },
+  {
+    "code": "SLE",
+    "name": "Sierra Leone",
+    "features": 172,
+    "levels": {
+      "3": 153,
+      "2": 14,
+      "1": 4,
+      "0": 1
+    },
+    "size_kb": 432.9
+  },
+  {
+    "code": "SGP",
+    "name": "Singapore",
+    "features": 16,
+    "levels": {
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "0": 1
+    },
+    "size_kb": 42.6
+  },
+  {
+    "code": "SXM",
+    "name": "Sint Maarten",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 37.7
+  },
+  {
+    "code": "SVK",
+    "name": "Slovakia",
+    "features": 167,
+    "levels": {
+      "2": 79,
+      "3": 79,
+      "1": 8,
+      "0": 1
+    },
+    "size_kb": 305.7
+  },
+  {
+    "code": "SVN",
+    "name": "Slovenia",
+    "features": 397,
+    "levels": {
+      "2": 192,
+      "3": 192,
+      "1": 12,
+      "0": 1
+    },
+    "size_kb": 227.0
+  },
+  {
+    "code": "SLB",
+    "name": "Solomon Islands",
+    "features": 377,
+    "levels": {
+      "2": 183,
+      "3": 183,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 999.6
+  },
+  {
+    "code": "SOM",
+    "name": "Somalia",
+    "features": 167,
+    "levels": {
+      "2": 74,
+      "3": 74,
+      "1": 18,
+      "0": 1
+    },
+    "size_kb": 227.8
+  },
+  {
+    "code": "ZAF",
+    "name": "South Africa",
+    "features": 62,
+    "levels": {
+      "2": 52,
+      "1": 9,
+      "0": 1
+    },
+    "size_kb": 1229.9
+  },
+  {
+    "code": "SGS",
+    "name": "South Georgia and the South Sand",
+    "features": 4,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "size_kb": 64.9
+  },
+  {
+    "code": "KOR",
+    "name": "South Korea",
+    "features": 3750,
+    "levels": {
+      "3": 3503,
+      "2": 229,
+      "1": 17,
+      "0": 1
+    },
+    "size_kb": 3755.3
+  },
+  {
+    "code": "SSD",
+    "name": "South Sudan",
+    "features": 105,
+    "levels": {
+      "3": 49,
+      "2": 45,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 247.7
+  },
+  {
+    "code": "ESP",
+    "name": "Spain",
+    "features": 441,
+    "levels": {
+      "3": 369,
+      "2": 52,
+      "1": 18,
+      "0": 2
+    },
+    "size_kb": 3397.9
+  },
+  {
+    "code": "LKA",
+    "name": "Sri Lanka",
+    "features": 672,
+    "levels": {
+      "2": 323,
+      "3": 323,
+      "1": 25,
+      "0": 1
+    },
+    "size_kb": 755.5
+  },
+  {
+    "code": "SDN",
+    "name": "Sudan",
+    "features": 336,
+    "levels": {
+      "3": 237,
+      "2": 80,
+      "1": 18,
+      "0": 1
+    },
+    "size_kb": 624.2
+  },
+  {
+    "code": "SUR",
+    "name": "Suriname",
+    "features": 135,
+    "levels": {
+      "2": 62,
+      "3": 62,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 232.1
+  },
+  {
+    "code": "SJM",
+    "name": "Svalbard and Jan Mayen",
+    "features": 7,
+    "levels": {
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "0": 1
+    },
+    "size_kb": 929.6
+  },
+  {
+    "code": "SWZ",
+    "name": "Swaziland",
+    "features": 115,
+    "levels": {
+      "2": 55,
+      "3": 55,
+      "1": 4,
+      "0": 1
+    },
+    "size_kb": 64.3
+  },
+  {
+    "code": "SWE",
+    "name": "Sweden",
+    "features": 602,
+    "levels": {
+      "2": 290,
+      "3": 290,
+      "1": 21,
+      "0": 1
+    },
+    "size_kb": 4082.3
+  },
+  {
+    "code": "CHE",
+    "name": "Switzerland",
+    "features": 2977,
+    "levels": {
+      "3": 2781,
+      "2": 169,
+      "1": 26,
+      "0": 1
+    },
+    "size_kb": 1534.8
+  },
+  {
+    "code": "SYR",
+    "name": "Syria",
+    "features": 135,
+    "levels": {
+      "2": 60,
+      "3": 60,
+      "1": 14,
+      "0": 1
+    },
+    "size_kb": 192.0
+  },
+  {
+    "code": "STP",
+    "name": "S\u00e3o Tom\u00e9 and Pr\u00edncipe",
+    "features": 17,
+    "levels": {
+      "2": 7,
+      "3": 7,
+      "1": 2,
+      "0": 1
+    },
+    "size_kb": 41.8
+  },
+  {
+    "code": "TWN",
+    "name": "Taiwan",
+    "features": 30,
+    "levels": {
+      "2": 22,
+      "1": 7,
+      "0": 1
+    },
+    "size_kb": 246.2
+  },
+  {
+    "code": "TJK",
+    "name": "Tajikistan",
+    "features": 425,
+    "levels": {
+      "3": 360,
+      "2": 59,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 446.0
+  },
+  {
+    "code": "TZA",
+    "name": "Tanzania",
+    "features": 218,
+    "levels": {
+      "2": 186,
+      "1": 31,
+      "0": 1
+    },
+    "size_kb": 1879.8
+  },
+  {
+    "code": "THA",
+    "name": "Thailand",
+    "features": 3893,
+    "levels": {
+      "3": 2887,
+      "2": 928,
+      "1": 77,
+      "0": 1
+    },
+    "size_kb": 6093.4
+  },
+  {
+    "code": "TLS",
+    "name": "Timor-Leste",
+    "features": 569,
+    "levels": {
+      "3": 493,
+      "2": 62,
+      "1": 13,
+      "0": 1
+    },
+    "size_kb": 502.0
+  },
+  {
+    "code": "TGO",
+    "name": "Togo",
+    "features": 419,
+    "levels": {
+      "3": 373,
+      "2": 40,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 501.6
+  },
+  {
+    "code": "TKL",
+    "name": "Tokelau",
+    "features": 10,
+    "levels": {
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "0": 1
+    },
+    "size_kb": 33.9
+  },
+  {
+    "code": "TON",
+    "name": "Tonga",
+    "features": 28,
+    "levels": {
+      "2": 11,
+      "3": 11,
+      "1": 5,
+      "0": 1
+    },
+    "size_kb": 83.6
+  },
+  {
+    "code": "TTO",
+    "name": "Trinidad and Tobago",
+    "features": 31,
+    "levels": {
+      "1": 15,
+      "2": 15,
+      "0": 1
+    },
+    "size_kb": 74.1
+  },
+  {
+    "code": "TUN",
+    "name": "Tunisia",
+    "features": 293,
+    "levels": {
+      "2": 268,
+      "1": 24,
+      "0": 1
+    },
+    "size_kb": 521.1
+  },
+  {
+    "code": "TUR",
+    "name": "Turkey",
+    "features": 1011,
+    "levels": {
+      "2": 929,
+      "1": 81,
+      "0": 1
+    },
+    "size_kb": 1876.4
+  },
+  {
+    "code": "TKM",
+    "name": "Turkmenistan",
+    "features": 123,
+    "levels": {
+      "2": 58,
+      "3": 58,
+      "1": 6,
+      "0": 1
+    },
+    "size_kb": 223.8
+  },
+  {
+    "code": "TCA",
+    "name": "Turks and Caicos Islands",
+    "features": 19,
+    "levels": {
+      "1": 6,
+      "2": 6,
+      "3": 6,
+      "0": 1
+    },
+    "size_kb": 71.7
+  },
+  {
+    "code": "TUV",
+    "name": "Tuvalu",
+    "features": 19,
+    "levels": {
+      "1": 9,
+      "2": 9,
+      "0": 1
+    },
+    "size_kb": 35.7
+  },
+  {
+    "code": "UGA",
+    "name": "Uganda",
+    "features": 225,
+    "levels": {
+      "2": 166,
+      "1": 58,
+      "0": 1
+    },
+    "size_kb": 1156.1
+  },
+  {
+    "code": "UKR",
+    "name": "Ukraine",
+    "features": 658,
+    "levels": {
+      "2": 629,
+      "1": 28,
+      "0": 1
+    },
+    "size_kb": 2310.7
+  },
+  {
+    "code": "ARE",
+    "name": "United Arab Emirates",
+    "features": 732,
+    "levels": {
+      "3": 530,
+      "2": 195,
+      "1": 7
+    },
+    "size_kb": 451.9
+  },
+  {
+    "code": "GBR",
+    "name": "United Kingdom",
+    "features": 1,
+    "levels": {
+      "0": 1
+    },
+    "size_kb": 951.4
+  },
+  {
+    "code": "USA",
+    "name": "United States",
+    "features": 3200,
+    "levels": {
+      "2": 3148,
+      "1": 51,
+      "0": 1
+    },
+    "size_kb": 16827.4
+  },
+  {
+    "code": "UMI",
+    "name": "United States Minor Outlying Isl",
+    "features": 19,
+    "levels": {
+      "1": 9,
+      "2": 9,
+      "0": 1
+    },
+    "size_kb": 31.3
+  },
+  {
+    "code": "URY",
+    "name": "Uruguay",
+    "features": 161,
+    "levels": {
+      "2": 141,
+      "1": 19,
+      "0": 1
+    },
+    "size_kb": 785.3
+  },
+  {
+    "code": "UZB",
+    "name": "Uzbekistan",
+    "features": 176,
+    "levels": {
+      "2": 161,
+      "1": 14,
+      "0": 1
+    },
+    "size_kb": 478.3
+  },
+  {
+    "code": "VUT",
+    "name": "Vanuatu",
+    "features": 70,
+    "levels": {
+      "2": 63,
+      "1": 6,
+      "0": 1
+    },
+    "size_kb": 296.7
+  },
+  {
+    "code": "VAT",
+    "name": "Vatican City",
+    "features": 3,
+    "levels": {
+      "0": 1,
+      "1": 1,
+      "2": 1
+    },
+    "size_kb": 22.5
+  },
+  {
+    "code": "VEN",
+    "name": "Venezuela",
+    "features": 364,
+    "levels": {
+      "2": 338,
+      "1": 25,
+      "0": 1
+    },
+    "size_kb": 1157.2
+  },
+  {
+    "code": "VNM",
+    "name": "Vietnam",
+    "features": 774,
+    "levels": {
+      "2": 710,
+      "1": 63,
+      "0": 1
+    },
+    "size_kb": 3022.8
+  },
+  {
+    "code": "VIR",
+    "name": "Virgin Islands, U.S.",
+    "features": 24,
+    "levels": {
+      "2": 20,
+      "1": 3,
+      "0": 1
+    },
+    "size_kb": 56.2
+  },
+  {
+    "code": "WLF",
+    "name": "Wallis and Futuna",
+    "features": 9,
+    "levels": {
+      "2": 5,
+      "1": 3,
+      "0": 1
+    },
+    "size_kb": 36.0
+  },
+  {
+    "code": "ESH",
+    "name": "Western Sahara",
+    "features": 13,
+    "levels": {
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "0": 1
+    },
+    "size_kb": 78.5
+  },
+  {
+    "code": "YEM",
+    "name": "Yemen",
+    "features": 354,
+    "levels": {
+      "2": 332,
+      "1": 21,
+      "0": 1
+    },
+    "size_kb": 608.0
+  },
+  {
+    "code": "ZMB",
+    "name": "Zambia",
+    "features": 126,
+    "levels": {
+      "2": 115,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 865.6
+  },
+  {
+    "code": "ZWE",
+    "name": "Zimbabwe",
+    "features": 102,
+    "levels": {
+      "2": 91,
+      "1": 10,
+      "0": 1
+    },
+    "size_kb": 634.8
+  },
+  {
+    "code": "ALA",
+    "name": "\u00c5land",
+    "features": 30,
+    "levels": {
+      "2": 13,
+      "3": 13,
+      "1": 3,
+      "0": 1
+    },
+    "size_kb": 383.2
+  }
+]

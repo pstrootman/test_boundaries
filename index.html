@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Administrative Boundaries</title>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 320px;
+        }
+        .controls h3 {
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #333;
+        }
+        .control-group {
+            margin-bottom: 12px;
+        }
+        .control-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+        }
+        select:disabled {
+            background: #f5f5f5;
+            cursor: not-allowed;
+        }
+        .level-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .level-btn {
+            padding: 6px 10px;
+            border: 2px solid #3b82f6;
+            background: white;
+            color: #3b82f6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        .level-btn:hover:not(:disabled) {
+            background: #eff6ff;
+        }
+        .level-btn.active {
+            background: #3b82f6;
+            color: white;
+        }
+        .level-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            border-color: #ccc;
+            color: #ccc;
+        }
+        .status {
+            margin-top: 12px;
+            padding: 10px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #666;
+        }
+        .status.loading {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        .feature-count {
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        .info-panel {
+            position: absolute;
+            bottom: 30px;
+            left: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 350px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        .info-panel h4 {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .info-panel table {
+            width: 100%;
+            font-size: 12px;
+            border-collapse: collapse;
+        }
+        .info-panel td {
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .info-panel td:first-child {
+            font-weight: 500;
+            color: #666;
+            width: 40%;
+        }
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #999;
+        }
+        .close-btn:hover {
+            color: #333;
+        }
+        .country-info {
+            font-size: 11px;
+            color: #888;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <div class="controls">
+        <h3>Administrative Boundaries</h3>
+
+        <div class="control-group">
+            <label>1. Select Country</label>
+            <select id="country-select" disabled>
+                <option value="">Loading countries...</option>
+            </select>
+            <div id="country-info" class="country-info"></div>
+        </div>
+
+        <div class="control-group">
+            <label>2. Select Admin Level</label>
+            <div class="level-buttons" id="level-buttons">
+                <button class="level-btn" data-level="0" disabled>Level 0</button>
+                <button class="level-btn" data-level="1" disabled>Level 1</button>
+                <button class="level-btn" data-level="2" disabled>Level 2</button>
+                <button class="level-btn" data-level="3" disabled>Level 3</button>
+            </div>
+        </div>
+
+        <div id="status" class="status loading">Initializing...</div>
+    </div>
+
+    <div id="info-panel" class="info-panel">
+        <button class="close-btn" onclick="closeInfoPanel()">&times;</button>
+        <h4 id="info-title">Feature Info</h4>
+        <table id="info-table"></table>
+    </div>
+
+    <script type="module">
+        import * as duckdb from 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm';
+
+        let db = null;
+        let conn = null;
+        let map = null;
+        let currentCountry = null;
+        let currentLevel = null;
+        let countryIndex = [];
+
+        // Admin level colors
+        const levelColors = {
+            0: '#ef4444',
+            1: '#f97316',
+            2: '#eab308',
+            3: '#22c55e'
+        };
+
+        const levelNames = {
+            0: 'Country',
+            1: 'State/Province',
+            2: 'District',
+            3: 'Sub-district'
+        };
+
+        // Initialize the map
+        map = new maplibregl.Map({
+            container: 'map',
+            style: {
+                version: 8,
+                sources: {
+                    'osm': {
+                        type: 'raster',
+                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+                        tileSize: 256,
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }
+                },
+                layers: [{
+                    id: 'osm',
+                    type: 'raster',
+                    source: 'osm'
+                }]
+            },
+            center: [0, 20],
+            zoom: 2
+        });
+
+        map.addControl(new maplibregl.NavigationControl());
+
+        // Initialize DuckDB
+        async function initDuckDB() {
+            try {
+                updateStatus('Loading DuckDB...', 'loading');
+
+                const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+                const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+
+                const worker_url = URL.createObjectURL(
+                    new Blob([`importScripts("${bundle.mainWorker}");`], { type: 'text/javascript' })
+                );
+                const worker = new Worker(worker_url);
+                const logger = new duckdb.ConsoleLogger();
+                db = new duckdb.AsyncDuckDB(logger, worker);
+                await db.instantiate(bundle.mainModule);
+
+                conn = await db.connect();
+
+                // Load country index
+                updateStatus('Loading country list...', 'loading');
+                const response = await fetch('countries/index.json');
+                countryIndex = await response.json();
+
+                // Populate country dropdown
+                const select = document.getElementById('country-select');
+                select.innerHTML = '<option value="">-- Select a country --</option>';
+                countryIndex.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country.code;
+                    option.textContent = country.name;
+                    select.appendChild(option);
+                });
+                select.disabled = false;
+
+                updateStatus('Ready! Select a country to begin.', '');
+
+            } catch (error) {
+                console.error('Error initializing:', error);
+                updateStatus('Error: ' + error.message, 'error');
+            }
+        }
+
+        // Load country data
+        async function loadCountry(countryCode) {
+            if (!conn || !countryCode) return;
+
+            try {
+                currentCountry = countryIndex.find(c => c.code === countryCode);
+                updateStatus(`Loading ${currentCountry.name}...`, 'loading');
+
+                // Fetch country parquet
+                const response = await fetch(`countries/${countryCode}.parquet`);
+                const arrayBuffer = await response.arrayBuffer();
+
+                // Remove old file if exists
+                try {
+                    await db.dropFile('current.parquet');
+                } catch (e) {}
+
+                await db.registerFileBuffer('current.parquet', new Uint8Array(arrayBuffer));
+
+                // Update country info
+                const infoDiv = document.getElementById('country-info');
+                infoDiv.innerHTML = `${currentCountry.features.toLocaleString()} boundaries across ${Object.keys(currentCountry.levels).length} admin levels`;
+
+                // Enable available level buttons
+                document.querySelectorAll('.level-btn').forEach(btn => {
+                    const level = parseInt(btn.dataset.level);
+                    const hasLevel = currentCountry.levels[level] > 0;
+                    btn.disabled = !hasLevel;
+                    btn.classList.remove('active');
+                    if (hasLevel) {
+                        btn.textContent = `Level ${level} (${currentCountry.levels[level]})`;
+                    } else {
+                        btn.textContent = `Level ${level}`;
+                    }
+                });
+
+                // Clear current map data
+                if (map.getSource('boundaries')) {
+                    map.getSource('boundaries').setData({ type: 'FeatureCollection', features: [] });
+                }
+
+                // Auto-select the lowest available level
+                const lowestLevel = Math.min(...Object.keys(currentCountry.levels).map(Number));
+                await loadLevel(lowestLevel);
+
+            } catch (error) {
+                console.error('Error loading country:', error);
+                updateStatus('Error loading country: ' + error.message, 'error');
+            }
+        }
+
+        // Load specific admin level
+        async function loadLevel(level) {
+            if (!conn || !currentCountry) return;
+
+            try {
+                document.querySelectorAll('.level-btn').forEach(btn => {
+                    btn.classList.toggle('active', parseInt(btn.dataset.level) === level);
+                });
+
+                currentLevel = level;
+                updateStatus(`Loading level ${level} boundaries...`, 'loading');
+
+                const result = await conn.query(`
+                    SELECT
+                        geojson,
+                        NAME_0,
+                        NAME_1,
+                        NAME_2,
+                        NAME_3,
+                        TYPE_1,
+                        TYPE_2,
+                        TYPE_3,
+                        ADMIN_LEVE,
+                        Shape_Area
+                    FROM read_parquet('current.parquet')
+                    WHERE ADMIN_LEVE = ${level}
+                `);
+
+                const features = [];
+                const bounds = [[Infinity, Infinity], [-Infinity, -Infinity]];
+
+                for (let i = 0; i < result.numRows; i++) {
+                    const row = result.get(i);
+                    try {
+                        const geometry = JSON.parse(row.geojson);
+                        features.push({
+                            type: 'Feature',
+                            geometry: geometry,
+                            properties: {
+                                name_0: row.NAME_0,
+                                name_1: row.NAME_1,
+                                name_2: row.NAME_2,
+                                name_3: row.NAME_3,
+                                type_1: row.TYPE_1,
+                                type_2: row.TYPE_2,
+                                type_3: row.TYPE_3,
+                                admin_level: row.ADMIN_LEVE,
+                                area: row.Shape_Area
+                            }
+                        });
+
+                        // Update bounds
+                        updateBounds(geometry, bounds);
+                    } catch (e) {}
+                }
+
+                const geojson = { type: 'FeatureCollection', features };
+
+                if (map.getSource('boundaries')) {
+                    map.getSource('boundaries').setData(geojson);
+                } else {
+                    map.addSource('boundaries', { type: 'geojson', data: geojson });
+
+                    map.addLayer({
+                        id: 'boundaries-fill',
+                        type: 'fill',
+                        source: 'boundaries',
+                        paint: {
+                            'fill-color': levelColors[level],
+                            'fill-opacity': 0.3
+                        }
+                    });
+
+                    map.addLayer({
+                        id: 'boundaries-line',
+                        type: 'line',
+                        source: 'boundaries',
+                        paint: {
+                            'line-color': levelColors[level],
+                            'line-width': 1.5
+                        }
+                    });
+
+                    map.on('click', 'boundaries-fill', (e) => {
+                        if (e.features.length > 0) {
+                            showFeatureInfo(e.features[0].properties);
+                        }
+                    });
+
+                    map.on('mouseenter', 'boundaries-fill', () => {
+                        map.getCanvas().style.cursor = 'pointer';
+                    });
+
+                    map.on('mouseleave', 'boundaries-fill', () => {
+                        map.getCanvas().style.cursor = '';
+                    });
+                }
+
+                map.setPaintProperty('boundaries-fill', 'fill-color', levelColors[level]);
+                map.setPaintProperty('boundaries-line', 'line-color', levelColors[level]);
+
+                // Fit map to bounds
+                if (bounds[0][0] !== Infinity) {
+                    map.fitBounds(bounds, { padding: 50 });
+                }
+
+                updateStatus(`Showing ${features.length.toLocaleString()} ${levelNames[level]} boundaries. Click for details.`, '');
+
+            } catch (error) {
+                console.error('Error loading level:', error);
+                updateStatus('Error: ' + error.message, 'error');
+            }
+        }
+
+        function updateBounds(geometry, bounds) {
+            const processCoords = (coords) => {
+                if (typeof coords[0] === 'number') {
+                    bounds[0][0] = Math.min(bounds[0][0], coords[0]);
+                    bounds[0][1] = Math.min(bounds[0][1], coords[1]);
+                    bounds[1][0] = Math.max(bounds[1][0], coords[0]);
+                    bounds[1][1] = Math.max(bounds[1][1], coords[1]);
+                } else {
+                    coords.forEach(processCoords);
+                }
+            };
+            if (geometry.coordinates) {
+                processCoords(geometry.coordinates);
+            }
+        }
+
+        function updateStatus(message, className) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = 'status ' + className;
+        }
+
+        function showFeatureInfo(properties) {
+            const panel = document.getElementById('info-panel');
+            const title = document.getElementById('info-title');
+            const table = document.getElementById('info-table');
+
+            let name = properties.name_0;
+            if (properties.admin_level >= 1 && properties.name_1) name = properties.name_1;
+            if (properties.admin_level >= 2 && properties.name_2) name = properties.name_2;
+            if (properties.admin_level >= 3 && properties.name_3) name = properties.name_3;
+
+            title.textContent = name || 'Unknown';
+
+            const rows = [
+                ['Country', properties.name_0],
+                ['Admin Level', `${properties.admin_level} (${levelNames[properties.admin_level]})`]
+            ];
+
+            if (properties.name_1) rows.push(['Level 1', properties.name_1 + (properties.type_1 ? ` (${properties.type_1})` : '')]);
+            if (properties.name_2) rows.push(['Level 2', properties.name_2 + (properties.type_2 ? ` (${properties.type_2})` : '')]);
+            if (properties.name_3) rows.push(['Level 3', properties.name_3 + (properties.type_3 ? ` (${properties.type_3})` : '')]);
+            if (properties.area) rows.push(['Area', properties.area.toFixed(4) + ' sq deg']);
+
+            table.innerHTML = rows.map(([key, val]) =>
+                `<tr><td>${key}</td><td>${val || '-'}</td></tr>`
+            ).join('');
+
+            panel.style.display = 'block';
+        }
+
+        function closeInfoPanel() {
+            document.getElementById('info-panel').style.display = 'none';
+        }
+        window.closeInfoPanel = closeInfoPanel;
+
+        // Event listeners
+        document.getElementById('country-select').addEventListener('change', (e) => {
+            if (e.target.value) {
+                loadCountry(e.target.value);
+            }
+        });
+
+        document.querySelectorAll('.level-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!btn.disabled) {
+                    loadLevel(parseInt(btn.dataset.level));
+                }
+            });
+        });
+
+        // Start
+        map.on('load', initDuckDB);
+    </script>
+</body>
+</html>
