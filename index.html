@@ -219,24 +219,68 @@
             3: 'Sub-district'
         };
 
-        // Initialize the map
+        // Initialize the map with a clean English-only basemap
         map = new maplibregl.Map({
             container: 'map',
             style: {
                 version: 8,
+                glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf',
                 sources: {
-                    'osm': {
+                    // Light gray background tiles (no labels)
+                    'carto-nolabels': {
                         type: 'raster',
-                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+                        tiles: ['https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png'],
                         tileSize: 256,
-                        attribution: '&copy; OpenStreetMap contributors'
+                        attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    },
+                    // Country boundaries from Natural Earth
+                    'countries': {
+                        type: 'geojson',
+                        data: 'https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson'
                     }
                 },
-                layers: [{
-                    id: 'osm',
-                    type: 'raster',
-                    source: 'osm'
-                }]
+                layers: [
+                    // Base layer - light gray, no labels
+                    {
+                        id: 'background',
+                        type: 'raster',
+                        source: 'carto-nolabels'
+                    },
+                    // Country boundary lines
+                    {
+                        id: 'country-boundaries',
+                        type: 'line',
+                        source: 'countries',
+                        paint: {
+                            'line-color': '#888888',
+                            'line-width': 1
+                        }
+                    },
+                    // Country labels in English
+                    {
+                        id: 'country-labels',
+                        type: 'symbol',
+                        source: 'countries',
+                        layout: {
+                            'text-field': ['get', 'ADMIN'],
+                            'text-font': ['Open Sans Regular'],
+                            'text-size': [
+                                'interpolate', ['linear'], ['zoom'],
+                                2, 10,
+                                5, 14,
+                                8, 18
+                            ],
+                            'text-transform': 'uppercase',
+                            'text-letter-spacing': 0.1,
+                            'text-max-width': 8
+                        },
+                        paint: {
+                            'text-color': '#555555',
+                            'text-halo-color': '#ffffff',
+                            'text-halo-width': 1.5
+                        }
+                    }
+                ]
             },
             center: [0, 20],
             zoom: 2
